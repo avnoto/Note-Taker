@@ -3,18 +3,17 @@ const path = require('path');
 const fs = require('fs');
 
 const app = express();
+
 const PORT = 8080;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static('public'));
 
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, './index.html'));
-});
-app.get('/reserve', function (req, res) {
-  res.sendFile(path.join(__dirname, './notes.html'));
-});
+require('./routes/apiRoutes')(app);
+require('./routes/htmlRoutes')(app);
 
+// Starts server to begin listening
 app.listen(PORT, function () {
   console.log('App listening on PORT ' + PORT);
 });
