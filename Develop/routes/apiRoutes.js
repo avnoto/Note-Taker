@@ -1,37 +1,21 @@
+const connection = require('../db/connection');
+
 module.exports = function (app) {
   app.get('/api/notes', function (req, res) {
-    return res.json('test');
+    connection.query('SELECT * FROM notes', (err, response) => {
+      return res.json(response);
+    });
   });
-  // app.post('/api/notes', function (req, res) {
-  //   JSON.parse(fs.readFileSync('../../db.json', 'utf8'));
-  //   fs.writeFileSync('../../db.json', JSON.stringify());
-  // });
-  // app.delete('/api/notes/:id', function (req, res) {
-  //   res.sendFile(path.join(__dirname, '../../db.json'));
-  // });
+  app.post('/api/notes', function (req, res) {
+    connection.query('INSERT INTO notes SET ?', req.body, (err, response) => {
+      return res.json(response);
+    });
+  });
+  app.delete('/api/notes/:id', function (req, res) {
+    const id = req.params.id;
 
-  //   app.post('/api/tables', function (req, res) {
-  //     // Note the code here. Our "server" will respond to requests and let users know if they have a table or not.
-  //     // It will do this by sending out the value "true" have a table
-  //     // req.body is available since we're using the body parsing middleware
-  //     if (tableData.length < 5) {
-  //       tableData.push(req.body);
-  //       res.json(true);
-  //     } else {
-  //       waitListData.push(req.body);
-  //       res.json(false);
-  //     }
-  //   });
-
-  //   // ---------------------------------------------------------------------------
-  //   // I added this below code so you could clear out the table while working with the functionality.
-  //   // Don"t worry about it!
-
-  //   app.post('/api/clear', function (req, res) {
-  //     // Empty out the arrays of data
-  //     tableData.length = 0;
-  //     waitListData.length = 0;
-
-  //     res.json({ ok: true });
-  //   });
+    connection.query('DELETE FROM notes WHERE ?', { id }, (err, response) => {
+      return res.json(response);
+    });
+  });
 };
