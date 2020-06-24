@@ -3,7 +3,7 @@ const mysql = require('mysql');
 let connection;
 
 if (process.env.JAWSDB_URL) {
-  connection = msql.createConnection(process.env.JAWSDB_URL);
+  connection = mysql.createConnection(process.env.JAWSDB_URL);
 } else {
   const connection = mysql.createConnection({
     host: 'localhost',
@@ -12,8 +12,6 @@ if (process.env.JAWSDB_URL) {
     password: 'root',
     database: 'notes_db',
   });
+  connection.connect();
+  module.exports = connection;
 }
-
-connection.connect();
-
-module.exports = connection;
