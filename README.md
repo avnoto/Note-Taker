@@ -14,6 +14,8 @@ An application used to write, save, and delete notes. This application uses an E
 
 Deployed application:
 
+https://avnoto-note-taker.herokuapp.com/
+
 ## Usage
 
 For users that need to keep track of a lot of information, it's easy to forget or be unable to recall something important. Being able to take persistent notes allows users to have written information available when needed. The Note Taker application allows users to:
