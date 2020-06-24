@@ -14,6 +14,8 @@ An application used to write, save, and delete notes. This application uses an E
 
 Deployed application:
 
+https://avnoto-note-taker.herokuapp.com/
+
 ## Usage
 
 <img src="Develop\public\assets\images\notetakergif.gif" alt="GIF of using the application"/>
