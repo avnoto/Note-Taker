@@ -16,6 +16,8 @@ Deployed application:
 
 ## Usage
 
+<img src="Develop\public\assets\images\notetakergif.gif" alt="GIF of using the application"/>
+
 For users that need to keep track of a lot of information, it's easy to forget or be unable to recall something important. Being able to take persistent notes allows users to have written information available when needed. The Note Taker application allows users to:
 
 - Create and save notes.
