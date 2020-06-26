@@ -12,6 +12,6 @@ if (process.env.JAWSDB_URL) {
     password: 'root',
     database: 'notes_db',
   });
-  connection.connect();
-  module.exports = connection;
 }
+connection.connect();
+module.exports = connection;
